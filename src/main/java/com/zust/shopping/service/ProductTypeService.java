@@ -31,12 +31,14 @@ public interface ProductTypeService {
     PageInfo<ProductTypeDTO> findAllProductTypes(Integer pageSize,Integer pageNum);
 
     /**
-     * 删除商品类型
+     * 根据id删除商品类型
      *
      * @param id 商品类型id
      * @return
      */
     boolean deleteProductTypeById(int id);
+
+
 
 
 }

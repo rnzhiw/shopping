@@ -1,6 +1,44 @@
 var $table = $("#account_table");
 
-//列出成员
+//弹出删除商品类型模态框
+function productTypeDelete(id) {
+    $('#delete_productType_modal').modal("show");
+    $('#delete_productType_id').val(id);
+}
+
+//商品类型删除
+$('#do_delete_productType_btn').click(function () {
+    $.ajax({
+        url: "/userplat/producttype/delete",
+        type: "post",
+        data: {
+            id: $("#delete_productType_id").val()
+        },
+        success: function (res) {
+            // alert(id);
+            if (res.success) {
+                $("#delete_productType_modal").modal("hide");
+                $table.bootstrapTable('refresh');
+            } else {
+                alert(res.message);
+                $("#delete_productType_modal").modal("hide");
+            }
+        },
+        error: function() {
+            alert(id);
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+//列出商品类型列表
 $(function () {
     $table.bootstrapTable({
         url: '/userplat/producttype/list',
@@ -82,5 +120,10 @@ $(function () {
         });
     });
 
-    $('.selectpicker').selectpicker('refresh');
 })
+
+
+
+
+
+

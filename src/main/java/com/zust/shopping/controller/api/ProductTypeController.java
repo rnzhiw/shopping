@@ -32,6 +32,13 @@ public class ProductTypeController {
         return "/userplat/main";
     }
 
+    /**
+     * 返回所有的商品类型
+     *
+     * @param pageSize 每页有多少条纪录
+     * @param pageNum 页数
+     * @return
+     */
     @RequestMapping("/list")
     @ResponseBody
     public AjaxResult list(Integer pageSize, Integer pageNum) {
@@ -40,6 +47,30 @@ public class ProductTypeController {
 
         return AjaxResult.success(pageInfo);
     }
+
+    /**
+     * 根据id删除商品类型
+     *
+     * @param id 商品类型id
+     * @return
+     */
+    @RequestMapping("/delete")
+    @ResponseBody
+    public AjaxResult delete(Integer id) {
+        System.out.println(id);
+        try {
+            boolean b = productTypeService.deleteProductTypeById(id);
+
+            return AjaxResult.success("删除成功");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.error("删除失败");
+        }
+
+    }
+
 
 
 }

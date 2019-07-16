@@ -90,6 +90,28 @@
     </div>
 </div>
 <!-- 修改商品类型 end -->
+
+<!-- 删除商品模态框 start -->
+<div class="modal fade" id="delete_productType_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalDelete">删除账户</h4>
+            </div>
+            <div class="modal-body">
+                确定要删除吗？
+                <input type="hidden" id="delete_productType_id">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancel-btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn common-btn" id="do_delete_productType_btn">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 删除商品模态框 end -->
 </body>
 
 <script src="../userplat/lib/bootstraptable/bootstrap-table.js"></script>

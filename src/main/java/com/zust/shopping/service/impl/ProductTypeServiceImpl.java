@@ -31,11 +31,29 @@ public class ProductTypeServiceImpl implements ProductTypeService {
     @Autowired
     private ProductTypeDAO productTypeDAO;
 
+    /**
+     * 根据id查询商品类型
+     *
+     * @param id 商品类型id
+     * @return
+     */
     @Override
     public ProductTypeDTO findOne(int id) {
-        return null;
+
+        if(id == 0) {
+            return null;
+        }
+
+        return e2d(productTypeDAO.findById(id));
     }
 
+    /**
+     * 查找所有的商品类型并分页
+     *
+     * @param pageSize 每页显示的条数
+     * @param pageNum 页码
+     * @return
+     */
     @Override
     public PageInfo<ProductTypeDTO> findAllProductTypes(Integer pageSize, Integer pageNum) {
 
@@ -49,9 +67,26 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         return page2pageInfo(p);
     }
 
+    /**
+     * 根据id删除商品类型
+     *
+     * @param id 商品类型id
+     * @return
+     */
     @Override
     public boolean deleteProductTypeById(int id) {
-        return false;
+
+        if(id == 0) {
+            return false;
+        }
+
+        ProductType type = productTypeDAO.findById(id);
+        if(type == null) {
+            return false;
+        }
+
+        productTypeDAO.deleteById(id);
+        return true;
     }
 
     /**
