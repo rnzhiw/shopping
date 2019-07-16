@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>backend</title>
     <link rel="stylesheet"  href="../userplat/lib/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet"  href="../userplat/lib/bootstraptable/bootstrap-table.css" />
     <link rel="stylesheet"  href="../userplat/css/index.css" />
     <script src="../userplat/lib/jquery/jquery-3.3.1.min.js"></script>
     <script src="../userplat/lib/bootstrap/bootstrap.min.js"></script>
@@ -21,40 +22,8 @@
         <input type="button" value="添加商品类型" class="btn btn-primary" id="doAddProTpye">
         <br>
         <br>
-        <div class="show-list">
-            <table class="table table-bordered table-hover" style='text-align: center;'>
-                <thead>
-                <tr class="text-danger">
-                    <th class="text-center">编号</th>
-                    <th class="text-center">类型名称</th>
-                    <th class="text-center">状态</th>
-                    <th class="text-center">操作</th>
-                </tr>
-                </thead>
-                <tbody id="tb">
-                <tr>
-                    <td>1</td>
-                    <td>aaaa</td>
-                    <td>启用</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProTypeModify" value="修改">
-                        <input type="button" class="btn btn-warning btn-sm doProTypeDelete" value="删除">
-                        <input type="button" class="btn btn-danger btn-sm doProTypeDisable" value="禁用">
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>aaaa</td>
-                    <td>启用</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProTypeModify" value="修改">
-                        <input type="button" class="btn btn-warning btn-sm doProTypeDelete" value="删除">
-                        <input type="button" class="btn btn-success btn-sm doProDisable" value="启用">
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <#-- 添加商品类型列表 -->
+        <table id="account_table" class="table table-striped table_list"></table>
     </div>
 </div>
 
@@ -122,5 +91,10 @@
 </div>
 <!-- 修改商品类型 end -->
 </body>
+
+<script src="../userplat/lib/bootstraptable/bootstrap-table.js"></script>
+<script src="../userplat/lib/bootstraptable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../userplat/js/productType.js"></script>
+
 
 </html>

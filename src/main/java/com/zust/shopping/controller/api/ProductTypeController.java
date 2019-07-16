@@ -7,6 +7,7 @@ import com.zust.shopping.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 商品类型api控制器
@@ -31,6 +32,8 @@ public class ProductTypeController {
         return "/userplat/main";
     }
 
+    @RequestMapping("/list")
+    @ResponseBody
     public AjaxResult list(Integer pageSize, Integer pageNum) {
 
         PageInfo<ProductTypeDTO> pageInfo = productTypeService.findAllProductTypes(pageSize, pageNum);
