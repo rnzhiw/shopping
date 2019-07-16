@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<!-- 添加商品类型 start -->
+<!-- 添加商品类型模态框 start -->
 <div class="modal fade" tabindex="-1" id="ProductType">
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
@@ -48,13 +48,13 @@
                 <br>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary addProductType">添加</button>
+                <button class="btn btn-primary addProductType" id="addProductType">添加</button>
                 <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
             </div>
         </div>
     </div>
 </div>
-<!-- 添加商品类型 end -->
+<!-- 添加商品类型模态框 end -->
 
 <!-- 修改商品类型 start -->
 <div class="modal fade" tabindex="-1" id="myProductType">
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-warning updateProType">修改</button>
+                <button class="btn btn-warning updateProType" id="update">修改</button>
                 <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
             </div>
         </div>

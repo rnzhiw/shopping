@@ -1,6 +1,8 @@
 package com.zust.shopping.service;
 
 import com.zust.shopping.common.PageInfo;
+import com.zust.shopping.common.ProductTypeException;
+import com.zust.shopping.model.domain.ProductType;
 import com.zust.shopping.model.dto.ProductTypeDTO;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +40,32 @@ public interface ProductTypeService {
      */
     boolean deleteProductTypeById(int id);
 
+    /**
+     * 保存商品类型
+     *
+     * @param name 商品类型
+     * @return
+     */
+    ProductTypeDTO save(String name) throws ProductTypeException;
 
+    /**
+     * 更新商品类型
+     *
+     * @param id 商品类型id
+     * @param name 商品类型名称
+     * @return
+     * @throws ProductTypeException
+     */
+    ProductTypeDTO update(int id,String name);
 
+    /**
+     * 修改商品类型状态
+     * 1：启用
+     * 2：禁用
+     *
+     * @param id 商品类型编号
+     * @return
+     */
+    ProductTypeDTO updateStatus(int id);
 
 }

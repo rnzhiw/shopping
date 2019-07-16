@@ -1,5 +1,6 @@
 package com.zust.shopping.model.dao;
 
+import com.zust.shopping.model.domain.Product;
 import com.zust.shopping.model.domain.ProductType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ public interface ProductTypeDAO extends JpaRepository<ProductType,Integer> {
 
     /**
      * 通过id查询商品类型
+     *
      * @param id
      * @return
      */
@@ -26,9 +28,18 @@ public interface ProductTypeDAO extends JpaRepository<ProductType,Integer> {
 
     /**
      * 获取所有的商品类型
+     *
      * @param pageable
      * @return
      */
     Page<ProductType> findAll(Pageable pageable);
+
+    /**
+     * 通过商品类型名称查找商品
+     *
+     * @param name 商品类型名称
+     * @return
+     */
+    ProductType findByName(String name);
 
 }

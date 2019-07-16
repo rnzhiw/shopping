@@ -2,6 +2,7 @@ package com.zust.shopping.controller.api;
 
 import com.zust.shopping.common.AjaxResult;
 import com.zust.shopping.common.PageInfo;
+import com.zust.shopping.common.ProductTypeException;
 import com.zust.shopping.model.dto.ProductTypeDTO;
 import com.zust.shopping.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,69 @@ public class ProductTypeController {
 
     }
 
+    /**
+     * 添加商品类型
+     *
+     * @param name 商品类型名称
+     * @return
+     */
+    @RequestMapping("/save")
+    @ResponseBody
+    public AjaxResult save(String name) {
 
+        System.out.println(name);
+        try {
+            ProductTypeDTO productTypeDTO = productTypeService.save(name);
+            return AjaxResult.success("添加成功");
+        } catch (ProductTypeException e) {
+            e.printStackTrace();
+            return AjaxResult.error("添加失败");
+        }
+    }
+
+    /**
+     * 修改商品类型
+     *
+     * @param id 商品类型id
+     * @param name 商品类型名称
+     * @return
+     */
+    @RequestMapping("/update")
+    @ResponseBody
+    public AjaxResult update(int id,String name) {
+
+        System.out.println(name);
+        try {
+            ProductTypeDTO productTypeDTO = productTypeService.update(id,name);
+            return AjaxResult.success("更新成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.success("更新失败");
+        }
+    }
+
+    /**
+     * 修改商品类型状态
+     * 1：启用
+     * 2：禁用
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("/updateStatus")
+    @ResponseBody
+    public AjaxResult updateStatus(int id) {
+        System.out.println(id);
+
+        try {
+            ProductTypeDTO productTypeDTO = productTypeService.updateStatus(id);
+            return AjaxResult.success("更新商品类型状态成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.error("更新商品类型状态失败");
+        }
+
+
+    }
 
 }

@@ -88,25 +88,25 @@ $(function(){
         $("#Product").modal("hide");
     });
 
-    // 商品类型管理 添加商品类型
-    $("#doAddProTpye").on("click", function() {
-        _this = this; //this是事件源
-        $("#ProductType").modal("show");
-    });
-
-    $(".addProductType").on("click", function() {
-        $("#ProductType").modal("hide");
-    });
-
-    // 商品类型管理 类型修改
-    $(".doProTypeModify").on("click", function() {
-        _this = this; //this是事件源
-        $("#myProductType").modal("show");
-    });
-
-    $(".updateProType").on("click", function() {
-        $("#myProductType").modal("hide");
-    });
+    // // 商品类型管理 添加商品类型
+    // $("#doAddProTpye").on("click", function() {
+    //     _this = this; //this是事件源
+    //     $("#ProductType").modal("show");
+    // });
+    //
+    // $(".addProductType").on("click", function() {
+    //     $("#ProductType").modal("hide");
+    // });
+    //
+    // // 商品类型管理 类型修改
+    // $(".doProTypeModify").on("click", function() {
+    //     _this = this; //this是事件源
+    //     $("#myProductType").modal("show");
+    // });
+    //
+    // $(".updateProType").on("click", function() {
+    //     $("#myProductType").modal("hide");
+    // });
 
     // 显示隐藏用户查询
     $('#showusersearch').click(function(){

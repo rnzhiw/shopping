@@ -1,6 +1,6 @@
 var $table = $("#account_table");
 
-//弹出删除商品类型模态框
+//弹出删除商品类型模态框(bootstrap-table实现)
 function productTypeDelete(id) {
     $('#delete_productType_modal').modal("show");
     $('#delete_productType_id').val(id);
@@ -30,13 +30,85 @@ $('#do_delete_productType_btn').click(function () {
     });
 });
 
+//弹出添加商品类型模态框
+$("#doAddProTpye").on("click", function() {
+    _this = this; //this是事件源
+    $("#ProductType").modal("show");
+});
 
+//添加商品类型
+$('#addProductType').click(function() {
+    $.ajax({
+        url: "/userplat/producttype/save",
+        type: "post",
+        data: {
+            name: $('#productTypeName').val(),
+        },
+        success: function(res) {
+            if(res.success) {
+                $('#ProductType').modal("hide");
+                $table.bootstrapTable('refresh');
+            } else {
+                alert(res.message);
+            }
+        },
+        error: function() {
+            alert("编辑失败");
+        }
+    })
+})
 
+//弹出更新商品类型名称模态框(bootstrap-table实现),id为框架自带参数
+function openProductTypeEditModel(id) {
+    $('#myProductType').modal("show");
+    $('#proTypeNum').val(id);
+}
 
+//更新商品类型
+$('#update').click(function(){
 
+    $.ajax({
+        url: "/userplat/producttype/update",
+        type: "post",
+        data: {
+            id: $('#proTypeNum').val(),
+            name: $('#proTypeName').val()
+        },
+        success: function(res) {
+            if(res.success) {
+                $('#myProductType').modal("hide");
+                $table.bootstrapTable('refresh');
+            } else {
+                alert(res.message);
+            }
+        },
+        error: function() {
+            alert("编辑失败");
+        }
+    })
 
+})
 
-
+//修改商品类型状态：1：启用,2：禁用
+function modifyStatus(id) {
+    $.ajax({
+        url: "/userplat/producttype/updateStatus",
+        type: "post",
+        data: {
+            id: id
+        },
+        success: function(res) {
+            if(res.success) {
+                $table.bootstrapTable('refresh');
+            } else {
+                alert(res.message);
+            }
+        },
+        error: function() {
+            alert("编辑失败");
+        }
+    })
+}
 
 //列出商品类型列表
 $(function () {
@@ -83,7 +155,7 @@ $(function () {
                 field: 'status',
                 title: '状态',
                 align: 'center',
-                formatter: function (value) {
+                formatter: function (value,row,index) {
                     if (value == 1) {
                         return "启用";
                     } else if (value == 2) {

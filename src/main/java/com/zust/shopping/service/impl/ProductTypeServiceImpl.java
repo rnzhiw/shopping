@@ -1,6 +1,7 @@
 package com.zust.shopping.service.impl;
 
 import com.zust.shopping.common.PageInfo;
+import com.zust.shopping.common.ProductTypeException;
 import com.zust.shopping.model.dao.ProductTypeDAO;
 import com.zust.shopping.model.domain.Product;
 import com.zust.shopping.model.domain.ProductType;
@@ -87,6 +88,79 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 
         productTypeDAO.deleteById(id);
         return true;
+    }
+
+    /**
+     * 保存商品类型
+     *
+     * @param name 商品类型
+     * @return
+     */
+    @Override
+    public ProductTypeDTO save(String name) throws ProductTypeException {
+
+        ProductType productType = productTypeDAO.findByName(name);
+
+        if(productType != null) {
+            throw new ProductTypeException("该商品类型已存在");
+        }
+
+        ProductType productType1 = new ProductType();
+
+        productType1.setName(name);
+        //默认为启用,status为1
+        productType1.setStatus(1);
+        return e2d(productTypeDAO.save(productType1));
+    }
+
+    /**
+     * 更改商品类型
+     * @param id 商品类型id
+     * @param name 商品类型名称
+     * @return
+     * @throws ProductTypeException
+     */
+    @Override
+    public ProductTypeDTO update(int id,String name) {
+
+        ProductType productType = productTypeDAO.getOne(id);
+
+        if(productType == null) {
+            return null;
+        }
+
+        productType.setName(name);
+
+        return e2d(productTypeDAO.save(productType));
+
+    }
+
+    /**
+     * 修改商品类型状态
+     * 1：启用
+     * 2：禁用
+     *
+     * @param id 商品类型编号
+     * @return
+     */
+    @Override
+    public ProductTypeDTO updateStatus(int id) {
+
+        ProductType productType = productTypeDAO.getOne(id);
+
+        if(productType == null) {
+            return null;
+        }
+
+        int status = productType.getStatus();
+        if(status == 1) {
+            status = 2;
+        } else {
+            status = 1;
+        }
+        productType.setStatus(status);
+
+        return e2d(productTypeDAO.save(productType));
     }
 
     /**
