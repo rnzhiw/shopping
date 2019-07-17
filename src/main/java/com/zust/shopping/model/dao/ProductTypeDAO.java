@@ -21,13 +21,13 @@ public interface ProductTypeDAO extends JpaRepository<ProductType,Integer> {
     /**
      * 通过id查询商品类型
      *
-     * @param id
+     * @param id 商品类型id
      * @return
      */
     ProductType findById(int id);
 
     /**
-     * 获取所有的商品类型
+     * 获取所有的商品类型并分页
      *
      * @param pageable
      * @return

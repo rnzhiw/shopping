@@ -43,6 +43,14 @@ public class Product {
     private String info;
 
     /**
+     * 商品状态
+     * 1：启用
+     * 2：禁用
+     */
+    @Column(name = "status",length = 200)
+    private int status;
+
+    /**
      * 商品图片存储地址
      */
     @Column(name = "image",length = 200)
