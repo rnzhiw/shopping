@@ -22,7 +22,7 @@
         <input type="button" value="添加商品类型" class="btn btn-primary" id="doAddProTpye">
         <br>
         <br>
-        <#-- 添加商品类型列表 -->
+        <!-- 添加商品类型列表 -->
         <table id="account_table" class="table table-striped table_list"></table>
     </div>
 </div>

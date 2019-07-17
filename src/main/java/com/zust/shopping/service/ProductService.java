@@ -30,4 +30,12 @@ public interface ProductService {
      */
     PageInfo<ProductDTO> findAllProducts(Integer pageSize,Integer pageNum);
 
+    /**
+     * 根据id删除商品
+     *
+     * @param id 商品id
+     * @return
+     */
+//    boolean deleteProductById(int id);
+
 }

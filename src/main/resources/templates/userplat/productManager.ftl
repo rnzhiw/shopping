@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,44 +33,8 @@
         <input type="button" value="添加商品" class="btn btn-primary" id="doAddPro">
         <br>
         <br>
-        <div class="show-list">
-            <table class="table table-bordered table-hover" style='text-align: center;'>
-                <thead>
-                <tr class="text-danger">
-                    <th class="text-center">编号</th>
-                    <th class="text-center">商品</th>
-                    <th class="text-center">价格</th>
-                    <th class="text-center">产品类型</th>
-                    <th class="text-center">状态</th>
-                    <th class="text-center">操作</th>
-                </tr>
-                </thead>
-                <tbody id="tb">
-                <tr>
-                    <td>1</td>
-                    <td>手机</td>
-                    <td>1999</td>
-                    <td>电子产品</td>
-                    <td>有效商品</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
-                        <input type="button" class="btn btn-warning btn-sm doProDelete" value="删除">
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>平板</td>
-                    <td>2999</td>
-                    <td>电子产品</td>
-                    <td>有效商品</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
-                        <input type="button" class="btn btn-warning btn-sm doProDelete" value="删除">
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <!-- 添加商品列表 -->
+        <table id="account_table" class="table table-striped table_list"></table>
     </div>
 </div>
 
@@ -199,6 +162,34 @@
         </form>
     </div>
     <!-- 修改商品 end -->
+</div>
+
+<!-- 删除商品模态框 start -->
+<div class="modal fade" id="delete_product_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalDelete">删除账户</h4>
+            </div>
+            <div class="modal-body">
+                确定要删除吗？
+                <input type="hidden" id="delete_product_id">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancel-btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn common-btn" id="do_delete_product_btn">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 删除商品模态框 end -->
+
 </body>
+
+<script src="../userplat/lib/bootstraptable/bootstrap-table.js"></script>
+<script src="../userplat/lib/bootstraptable/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../userplat/js/product.js"></script>
 
 </html>

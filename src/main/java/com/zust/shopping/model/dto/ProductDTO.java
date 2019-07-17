@@ -37,6 +37,16 @@ public class ProductDTO {
      */
     private String image;
 
+    /**
+     * 商品类型id
+     */
+    private Integer productTypeId;
+
+    /**
+     * 商品类型名称
+     */
+    private String productTypeName;
+
     public Integer getId() {
         return id;
     }
@@ -75,6 +85,22 @@ public class ProductDTO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getProductTypeId() {
+        return productTypeId;
+    }
+
+    public void setProductTypeId(Integer productTypeId) {
+        this.productTypeId = productTypeId;
+    }
+
+    public String getProductTypeName() {
+        return productTypeName;
+    }
+
+    public void setProductTypeName(String productTypeName) {
+        this.productTypeName = productTypeName;
     }
 
     @Override

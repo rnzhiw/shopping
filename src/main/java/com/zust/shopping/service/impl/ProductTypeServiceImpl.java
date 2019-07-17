@@ -194,6 +194,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         pageInfo.setList(e2d(p.getContent()));
         pageInfo.setPageSize(p.getSize());
         pageInfo.setSize(p.getContent().size());
+
         return pageInfo;
     }
 
