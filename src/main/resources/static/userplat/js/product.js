@@ -24,11 +24,21 @@ $('#do_delete_product_btn').click(function () {
                 $("#delete_product_modal").modal("hide");
             }
         },
+        //前端没有发送成功
         error: function() {
-            alert(id);
+            alert("删除失败");
         }
     });
 });
+
+//弹出添加商品类型模态框
+$("#doAddPro").on("click", function() {
+    _this = this; //this是事件源
+    $("#Product").modal("show");
+});
+
+
+
 
 //列出商品类型列表
 $(function () {

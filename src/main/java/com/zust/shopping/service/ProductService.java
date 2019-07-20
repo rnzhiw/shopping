@@ -36,6 +36,6 @@ public interface ProductService {
      * @param id 商品id
      * @return
      */
-//    boolean deleteProductById(int id);
+    boolean deleteProductById(int id);
 
 }

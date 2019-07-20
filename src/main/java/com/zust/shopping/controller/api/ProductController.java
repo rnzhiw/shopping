@@ -39,28 +39,32 @@ public class ProductController {
         return AjaxResult.success(pageInfo);
     }
 
+
     /**
-     * 根据id删除商品
+     * 根据商品id删除商品
      *
      * @param id 商品id
      * @return
      */
-//    @RequestMapping("/delete")
-//    @ResponseBody
-//    public AjaxResult delete(Integer id) {
-//        System.out.println(id);
-//        try {
-//            boolean b = productService.deleteProductById(id);
-//
-//            return AjaxResult.success("删除成功");
-//
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return AjaxResult.error("删除失败");
-//        }
-//
-//    }
+    @RequestMapping("/delete")
+    @ResponseBody
+    public AjaxResult delete(Integer id) {
+        System.out.println(id);
+        try {
+            boolean b = productService.deleteProductById(id);
+
+            return AjaxResult.success("删除成功");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.error("删除失败");
+        }
+    }
+
+
+
+
 
 
 

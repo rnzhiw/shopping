@@ -1,7 +1,9 @@
 package com.zust.shopping;
 
 import com.zust.shopping.model.dao.ProductDAO;
+import com.zust.shopping.model.dao.ProductTypeDAO;
 import com.zust.shopping.model.domain.Product;
+import com.zust.shopping.model.domain.ProductType;
 import com.zust.shopping.model.dto.ProductDTO;
 import com.zust.shopping.service.ProductService;
 import org.junit.Test;
@@ -27,6 +29,9 @@ public class ProductTest {
     @Autowired
     private ProductDAO productDAO;
 
+    @Autowired
+    private ProductTypeDAO productTypeDAO;
+
     @Test
     public void testList() {
         ProductDTO productDTO = productService.findOne(1);
@@ -41,10 +46,18 @@ public class ProductTest {
         Product product = productDAO.findById(1);
     }
 
-//    @Test
-//    public void testDelete() {
-//        boolean b = productService.deleteProductById(1);
-//        System.out.println(b);
-//    }
+    @Test
+    public void testDelete() {
+        //测试service层
+//        ProductDTO productDTO = productService.findOne(7);
+//        String name = productDTO.getName();
+//        System.out.println(name);
+        //测试DAO层
+//        Product product = productDAO.findById(7);
+//        String name = product.getName();
+//        System.out.println(name);
+
+
+    }
 
 }

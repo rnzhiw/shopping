@@ -5,7 +5,6 @@ import com.zust.shopping.model.dao.ProductDAO;
 import com.zust.shopping.model.domain.Product;
 import com.zust.shopping.model.domain.ProductType;
 import com.zust.shopping.model.dto.ProductDTO;
-import com.zust.shopping.model.dto.ProductTypeDTO;
 import com.zust.shopping.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,28 +63,26 @@ public class ProductServiceImpl implements ProductService {
     }
 
     /**
-     * 根据id删除商品
+     * 根据商品id删除商品
      *
      * @param id 商品id
      * @return
      */
-//    @Override
-//    public boolean deleteProductById(int id) {
-//
-//        if(id == 0) {
-//            return false;
-//        }
-//
-//        Product type = productDAO.findById(id);
-//        if(type == null) {
-//            return false;
-//        }
-//
-//        productDAO.deleteById(id);
-//        return true;
-//    }
+    @Override
+    public boolean deleteProductById(int id) {
 
+        if(id == 0) {
+            return false;
+        }
 
+        Product type = productDAO.findById(id);
+        if(type == null) {
+            return false;
+        }
+
+        productDAO.delete(type);
+        return true;
+    }
 
     /**
      * 返回productDTO分页结果

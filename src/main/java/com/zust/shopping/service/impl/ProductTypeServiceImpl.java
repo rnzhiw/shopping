@@ -118,7 +118,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
      * @param id 商品类型id
      * @param name 商品类型名称
      * @return
-     * @throws ProductTypeException
+     * @throws ProductTypeException 抛出商品类型异常
      */
     @Override
     public ProductTypeDTO update(int id,String name) {
