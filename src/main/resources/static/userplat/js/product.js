@@ -40,6 +40,8 @@ $("#doAddPro").on("click", function() {
 
 
 
+
+
 //列出商品类型列表
 $(function () {
     $table.bootstrapTable({
